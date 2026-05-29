@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  color: #1e1e1e;
+  background: #fff;
+  line-height: 1.7;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 72px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  font-size: 15px;
+  transition: opacity 0.25s ease;
+}
+
+.nav a:hover {
+  opacity: 0.55;
+}
+
+.hero {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.58)),
+    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80") center/cover;
+}
+
+.hero-card {
+  width: min(850px, 92%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 140px;
+  text-align: center;
+}
+
+.service-box h2 {
+  margin-top: 8px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.service-box p {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+
+}
+
+.section-wrap {
+  width: min(1000px, 88%);
+  margin: 0 auto;
+}
+
+.profile {
+  padding: 92px 0 70px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 80px;
+  align-items: center;
+}
+
+.profile-text h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.profile-text p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile-img {
+  width: 350px;
+  height: 350px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.banner {
+  height: 270px;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background:
+    linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)),
+    url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1400&q=80") center/cover;
+}
+
+.portfolio {
+  text-align: center;
+  padding-bottom: 95px;
+}
+
+.portfolio h2 {
+  margin-bottom: 34px;
+  font-size: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+}
+
+.case-card {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 35px rgba(0,0,0,.08);
+}
+
+.case-card div {
+  height: 160px;
+  background: url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=80") center/cover;
+}
+
+.case-card h3 {
+  padding: 14px 0 18px;
+  font-size: 18px;
+}
+
+.footer {
+  min-height: 150px;
+  padding: 32px 20px 18px;
+  text-align: center;
+  background: #f0eaea;
+}
+
+.footer h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 35px;
+}
+
+.social-links a {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0 18px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .hero-card,
+  .profile,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    gap: 54px;
+    padding: 72px 0;
+  }
+
+  .profile {
+    gap: 36px;
+    padding: 64px 0 50px;
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 310px;
+  }
+
+  .banner {
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+  }
+}
