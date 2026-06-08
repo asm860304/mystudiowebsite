@@ -60,21 +60,50 @@
     <section id="portfolio" class="portfolio section-wrap">
       <h2>案例參考</h2>
       <div class="cards">
-        <article class="case-card"><div></div><h3>形象網站</h3></article>
-        <article class="case-card"><div></div><h3>影片剪輯</h3></article>
+        <article class="case-card" data-video="大理古城.mov">
+          <video src="大理古城.mov" autoplay muted loop playsinline></video>
+          <h3>大理古城</h3>
+        </article>
+        <article class="case-card" data-video="沙溪古鎮mp4.mp4">
+          <video src="沙溪古鎮mp4.mp4" autoplay muted loop playsinline></video>
+          <h3>沙溪古鎮</h3>
+        </article>
         <article class="case-card"><div></div><h3>品牌頁面</h3></article>
       </div>
     </section>
   </main>
 
+  <!-- Video Modal -->
+  <div id="video-modal" class="video-modal">
+    <div class="video-modal-overlay"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close">✕</button>
+      <video id="modal-video" controls></video>
+    </div>
+  </div>
+
   <footer id="contact" class="footer">
     <h3>social media</h3>
-    <a href="payment-terms.html" target="_blank">金流服務條款</a>
     <div class="social-links">
-      <a href="mailto:yourmail@example.com" aria-label="寄信給 Acut Studio" title="Email">✉</a>
-      <a href="https://www.instagram.com/illbewith_youhere?igsh=MXY2MTg5Mmk2czRqMg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Acut Studio Instagram" title="Instagram">◎</a>
+      <a href="mailto:yourmail@example.com"
+         aria-label="寄信給 Acut Studio"
+         title="Email">
+         <img src="mail.png" alt="Email" class="social-icon">
+      </a>
+      <a href="https://www.instagram.com/illbewith_youhere?igsh=MXY2MTg5Mmk2czRqMg%3D%3D&utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Acut Studio Instagram"
+        title="Instagram">
+        <img src="social.png" alt="Instagram" class="social-icon">
+      </a>
+      <a href="payment-terms.html" target="_blank">金流服務條款</a>
     </div>
     <p>© 2026 Archer Studio. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    
+  </script>
 </body>
 </html>
