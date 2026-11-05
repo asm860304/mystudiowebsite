@@ -1,120 +1,211 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acut Studio｜網頁設計・影片剪輯</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="js.script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="site-name" content="十杯工作室 TENSHOT">
+  <title>十杯工作室 TENSHOT｜網頁設計 × 影片剪輯</title>
+  <link rel="icon" href="assets/brand/final/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/final/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/brand/final/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/brand/final/apple-touch-icon-180.png" sizes="180x180">
+  <meta name="description" content="十杯工作室 TENSHOT 提供網頁設計與影片剪輯服務，以簡約現代的風格，協助品牌整理視覺與內容。">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="十杯工作室 TENSHOT">
+  <meta property="og:title" content="十杯工作室 TENSHOT｜網頁設計 × 影片剪輯">
+  <meta property="og:description" content="十杯工作室 TENSHOT 提供網頁設計與影片剪輯服務，以簡約現代的風格，協助品牌整理視覺與內容。">
+  <meta property="og:locale" content="zh_TW">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script src="js/site-config.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/reveal.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a href="#home" class="logo-link" aria-label="回到首頁">
-      <img src="logo.jpeg" alt="Acut Studio Logo" class="logo" />
-    </a>
-    <nav class="nav">
-      <a href="#portfolio">服務項目</a>
-      <a href="#contact">聯絡我們</a>
-    </nav>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTFCFZ3GRZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <a class="skip-link" href="#main">跳到主要內容</a>
 
-      gtag('config', 'G-LTFCFZ3GRZ');
-    </script>
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="#hero">
+        <img class="site-logo__img" src="assets/brand/final/lockup-horizontal-light.svg" alt="十杯工作室 TENSHOT" width="150" height="40">
+      </a>
+
+      <button class="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-backdrop" aria-hidden="true"></div>
+
+      <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#services">服務</a></li>
+          <li><a class="site-nav__link" href="#process">流程</a></li>
+          <li><a class="site-nav__link" href="#about">關於</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm site-nav__cta" href="#contact">聯絡我們</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="service-box">
-          <div class="service-icon"><img src="video_edit.png"></div>
-          <h2>影片剪輯</h2>
-          <p>字幕編輯</p>
-          <p>影片剪輯</p>
-          <p>轉場特效</p>
+  <main id="main">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow" lang="en">WEB DESIGN × VIDEO EDITING</p>
+          <h1 class="hero__title" id="hero-title">讓品牌被看見，<br>也被<em class="text-accent">記住。</em></h1>
+          <p class="lead hero__lead">從網站到影片，用設計與節奏整理品牌想說的事。</p>
+          <div class="btn-group hero__actions">
+            <a class="btn btn--primary" href="#contact">聯絡我們<span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="service-box">
-          <div class="service-icon"><img src="webdesign_pic.png"></div>
-          <h2>網頁設計</h2>
-          <p>一頁式網頁</p>
-          <p>展示型網頁</p>
-          <p>擁有專屬網頁</p>
+
+        <div class="hero__timeline timeline" aria-hidden="true">
+          <span class="timeline__ruler"></span>
+          <span class="timeline__mark timeline__mark--0">00:00</span>
+          <span class="timeline__mark timeline__mark--10">00:10</span>
+          <span class="timeline__mark timeline__mark--20">00:20</span>
+          <span class="timeline__mark timeline__mark--30">00:30</span>
+          <span class="timeline__clip timeline__clip--a">V1 · INTRO</span>
+          <span class="timeline__clip timeline__clip--b">V1 · STORY</span>
+          <span class="timeline__playhead"><span class="timeline__now">00:12</span></span>
+        </div>
+
+        <a class="hero__scroll" href="#services" lang="en">SCROLL <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="section section--light services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow"><span class="eyebrow__num">01</span> — SERVICES</p>
+          <h2 class="section__title" id="services-title">我們做什麼</h2>
+          <p class="lead section__lead">網站與影片由同一個團隊規劃，讓視覺語言在不同媒介之間保持一致。</p>
+        </header>
+
+        <ul class="services__grid">
+          <li data-reveal>
+            <article class="service-card">
+              <p class="service-card__num">01</p>
+              <h3 class="service-card__title">網頁設計</h3>
+              <p class="service-card__text">形象官網、一頁式網站與活動頁，從內容架構、介面設計到響應式切版。</p>
+              <ul class="dot-list">
+                <li>品牌形象官網</li>
+                <li>一頁式活動頁</li>
+                <li>RWD 響應式切版</li>
+                <li>網站維護與優化</li>
+              </ul>
+              <a class="text-link" href="#contact">諮詢這項服務</a>
+            </article>
+          </li>
+          <li data-reveal>
+            <article class="service-card">
+              <p class="service-card__num">02</p>
+              <h3 class="service-card__title">影片剪輯</h3>
+              <p class="service-card__text">品牌形象片、社群短影音與活動紀錄，從素材整理、剪輯節奏到字幕調色。</p>
+              <ul class="dot-list">
+                <li>品牌形象影片</li>
+                <li>社群短影音</li>
+                <li>活動紀錄剪輯</li>
+                <li>字幕與調色</li>
+              </ul>
+              <a class="text-link" href="#contact">諮詢這項服務</a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section section--light process" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section__header" data-reveal>
+          <p class="eyebrow"><span class="eyebrow__num">02</span> — PROCESS</p>
+          <h2 class="section__title" id="process-title">合作流程</h2>
+        </header>
+
+        <ol class="process__list">
+          <li class="process-step" data-reveal>
+            <span class="process-step__num" aria-hidden="true">01</span>
+            <h3 class="process-step__title">諮詢</h3>
+            <p class="process-step__text">了解目標、受眾與需要的內容。</p>
+          </li>
+          <li class="process-step" data-reveal>
+            <span class="process-step__num" aria-hidden="true">02</span>
+            <h3 class="process-step__title">提案</h3>
+            <p class="process-step__text">提出設計方向與時程規劃。</p>
+          </li>
+          <li class="process-step" data-reveal>
+            <span class="process-step__num" aria-hidden="true">03</span>
+            <h3 class="process-step__title">製作</h3>
+            <p class="process-step__text">進行設計／剪輯，分階段確認與修改。</p>
+          </li>
+          <li class="process-step" data-reveal>
+            <span class="process-step__num" aria-hidden="true">04</span>
+            <h3 class="process-step__title">交付</h3>
+            <p class="process-step__text">交付成品檔案與使用說明。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section section--light about" id="about" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div class="about__intro" data-reveal>
+          <p class="eyebrow"><span class="eyebrow__num">03</span> — ABOUT</p>
+          <h2 class="section__title" id="about-title">關於我們</h2>
+          <p class="about__statement">安靜、精準，<br>讓作品自己說話。</p>
+        </div>
+        <div class="about__body" data-reveal>
+          <p>我們是一個同時做網頁設計與影片剪輯的小型工作室，習慣把網站與影片放在一起思考。</p>
+          <p>合作時重視溝通與細節，從需求整理開始，一步步把想法變成可以使用的成品。</p>
         </div>
       </div>
     </section>
 
-    <section class="profile section-wrap">
-      <div class="profile-text">
-        <h1>Hi，我是 Archer。</h1>
-        <p>喜歡透過旅行感受世界，也喜歡用星座、塔羅這些有趣的角度理解人與故事。對我來說，每個品牌、每段內容，都有屬於自己獨特想呈現的靈魂與節奏。</p>
-        <p>目前專注於網站製作與影片剪輯，將想法轉化成有溫度、有質感且能真正傳達價值的作品。</p>
-        <p>不論你是想打造品牌網站、展示作品，或是透過影片說好一個故事，我都希望先理解你的想法，再用最適合你的方式，把它呈現出來。</p>
-      </div>
-      <div class="profile-img">
-        <img src="profile.png" alt="Archer 個人形象照">
-      </div>
-    </section>
+    <section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <div class="contact__intro" data-reveal>
+          <p class="eyebrow"><span class="eyebrow__num">04</span> — CONTACT</p>
+          <h2 class="section__title" id="contact-title">一起做點好東西</h2>
+          <p class="lead section__lead">有網站或影片的想法，歡迎來信聊聊，我們會盡快回覆你。</p>
+        </div>
 
-    <section class="banner section-wrap">
-      <div>
-        <p>打造你的數位門面</p>
-        <p>每一秒，都值得解密</p>
-      </div>
-    </section>
-
-    <section id="portfolio" class="portfolio section-wrap">
-      <h2>案例參考</h2>
-      <div class="cards">
-        <article class="case-card" data-video="雲南合輯480.mov">
-          <video src="雲南合輯480.mov" autoplay muted loop playsinline></video>
-          <h3>雲南旅遊合輯</h3>
-        </article>
-        <article class="case-card" data-video="擊殺精華-浮水印.mp4">
-          <video src="擊殺精華-浮水印.mp4" autoplay muted loop playsinline></video>
-          <h3>遊戲精華剪輯</h3>
-        </article>
-        <article class="case-card" data-video="貓咖宣傳影片-01-版本4.mp4">
-            <video src="貓咖宣傳影片-01-版本4.mp4" autoplay muted loop playsinline></video>
-            <h3>咖啡廳宣傳短影音</h3>
-        </article>
+        <aside class="contact-info" aria-labelledby="contact-info-title" data-reveal>
+          <h3 class="visually-hidden" id="contact-info-title">聯絡方式</h3>
+          <dl class="contact-info__list">
+            <div class="contact-info__item">
+              <dt class="eyebrow">EMAIL</dt>
+              <dd><a class="text-link text-link--on-dark" href="mailto:asm860304@gmail.com">asm860304@gmail.com</a></dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </section>
   </main>
 
-  <!-- Video Modal -->
-  <div id="video-modal" class="video-modal">
-    <div class="video-modal-overlay"></div>
-    <div class="video-modal-content">
-      <button class="video-modal-close">✕</button>
-      <video id="modal-video" controls></video>
+  <footer class="site-footer" id="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__brand">
+        <img class="site-footer__logo" src="assets/brand/final/lockup-horizontal-dark.svg" alt="十杯工作室 TENSHOT" width="120" height="32">
+        <small>© 2026 <span data-site-name>十杯工作室 TENSHOT</span></small>
+      </p>
+      <a class="site-footer__top" href="#hero">回到頂部 <span aria-hidden="true">↑</span></a>
     </div>
-  </div>
-
-  <footer id="contact" class="footer">
-    <h3>social media</h3>
-    <div class="social-links">
-      <a href="mailto:yourmail@example.com"
-         aria-label="寄信給 Acut Studio"
-         title="Email">
-         <img src="mail.png" alt="Email" class="social-icon">
-      </a>
-      <a href="https://www.instagram.com/illbewith_youhere?igsh=MXY2MTg5Mmk2czRqMg%3D%3D&utm_source=qr"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Acut Studio Instagram"
-        title="Instagram">
-        <img src="social.png" alt="Instagram" class="social-icon">
-      </a>
-      <a href="payment-terms.html" target="_blank">金流服務條款</a>
-    </div>
-    <p>© 2026 Archer Studio. All Rights Reserved.</p>
   </footer>
-  
-  <script></script>
-  <!-- Google tag (gtag.js) -->
-  
 </body>
 </html>
