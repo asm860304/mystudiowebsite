@@ -1,0 +1,375 @@
+/* Video showcase and lightbox. Layout values are custom properties
+   on .video-showcase (see css/variables.css). */
+
+.video-showcase__wrap {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.video-showcase__header {
+  margin: 0 0 var(--video-header-to-media);
+  text-align: center;
+}
+
+.video-showcase__header .section__title {
+  text-align: center;
+}
+
+.video-showcase__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--video-item-gap);
+  align-items: start;
+  margin-inline: auto;
+}
+
+.video-showcase__item {
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.video-showcase__item--a {
+  max-width: calc(var(--video-preview-max-h) * 9 / 16);
+  justify-self: center;
+}
+
+.video-showcase__trigger {
+  display: none;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+  border-radius: var(--radius-md);
+}
+
+.js .video-showcase__trigger {
+  display: block;
+  scroll-margin-top: calc(var(--scroll-offset) + var(--fs-h2) * var(--lh-tight) + var(--video-header-to-media));
+}
+
+.video-showcase__noscript {
+  display: block;
+  scroll-margin-top: calc(var(--scroll-offset) + var(--fs-h2) * var(--lh-tight) + var(--video-header-to-media));
+}
+
+.js .video-showcase__noscript {
+  display: none;
+}
+
+/* Hidden slots stay display:none and unfocusable,
+   even when child triggers would otherwise be display:block. */
+.video-showcase [hidden] {
+  display: none !important;
+}
+
+.video-showcase__frame {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-ink-2);
+  box-shadow: inset 0 0 0 var(--line) var(--color-line-dark);
+}
+
+.video-showcase__item--a .video-showcase__frame {
+  aspect-ratio: 9 / 16;
+}
+
+.video-showcase__item--b .video-showcase__frame {
+  aspect-ratio: 4 / 3;
+}
+
+.video-showcase__frame > picture,
+.video-showcase__frame > picture > img,
+.video-showcase__frame > video,
+.video-showcase__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-showcase__frame > picture > img,
+.video-showcase__frame > video {
+  object-fit: contain;
+  object-position: 50% 50%;
+  transition: filter var(--dur) var(--ease);
+}
+
+.video-showcase__trigger:hover .video-showcase__frame > picture > img,
+.video-showcase__trigger:hover .video-showcase__frame > video,
+.video-showcase__trigger:focus-visible .video-showcase__frame > picture > img,
+.video-showcase__trigger:focus-visible .video-showcase__frame > video {
+  filter: brightness(var(--video-hover-brightness));
+}
+
+/* Focus ring on the unclipped trigger, not inside overflow:hidden */
+.video-showcase__trigger:focus {
+  outline: none;
+}
+
+.video-showcase__trigger:focus-visible {
+  outline: var(--line-strong) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* Reduced-motion: no brightness transition; keep the focus ring.
+   Small ▶ is inside the trigger (not a separate tab stop). */
+.video-showcase__rm-hint {
+  display: none;
+  position: absolute;
+  inset: 0;
+  place-items: center;
+  pointer-events: none;
+  color: var(--color-on-dark);
+}
+
+.video-showcase__rm-hint svg {
+  width: var(--video-rm-hint-size);
+  height: var(--video-rm-hint-size);
+  display: block;
+}
+
+.video-showcase__rm-hint-disc {
+  display: grid;
+  place-items: center;
+  width: var(--touch);
+  height: var(--touch);
+  border-radius: 50%;
+  background: var(--color-overlay-button);
+}
+
+@media (min-width: 768px) {
+  .video-showcase__wrap {
+    width: min(100%, calc(var(--video-preview-max-h) * var(--video-col-sum) / 48 + var(--video-item-gap)));
+  }
+
+  .video-showcase__wrap:has(.video-grid--single) {
+    width: 100%;
+  }
+
+  .video-showcase__grid:not(.video-grid--single) {
+    grid-template-columns: minmax(0, 27fr) minmax(0, 64fr);
+    column-gap: var(--video-item-gap);
+  }
+
+  .video-showcase__grid:not(.video-grid--single) .video-showcase__item--a {
+    max-width: none;
+    justify-self: stretch;
+  }
+}
+
+/* Single-column layout: size by height only;
+   width comes from aspect-ratio 9/16. 560px starts at the existing
+   1200px site breakpoint. Gap is 0 so a lone item has no leftover track. */
+.video-showcase__grid.video-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0;
+  row-gap: 0;
+  column-gap: 0;
+}
+
+.video-grid--single .video-showcase__item--a {
+  width: auto;
+  max-width: 100%;
+  justify-self: center;
+}
+
+.video-grid--single .video-showcase__item--a .video-showcase__trigger,
+.video-grid--single .video-showcase__item--a .video-showcase__frame {
+  width: auto;
+  height: var(--video-single-h);
+  aspect-ratio: 9 / 16;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-showcase__frame > picture > img,
+  .video-showcase__frame > video {
+    transition: none;
+  }
+
+  .video-showcase__trigger:hover .video-showcase__frame > picture > img,
+  .video-showcase__trigger:hover .video-showcase__frame > video,
+  .video-showcase__trigger:focus-visible .video-showcase__frame > picture > img,
+  .video-showcase__trigger:focus-visible .video-showcase__frame > video {
+    filter: none;
+  }
+
+  .js .video-showcase__rm-hint {
+    display: grid;
+  }
+
+  .js .video-showcase__preview {
+    visibility: hidden;
+  }
+}
+
+.js .video-showcase.is-reduced-motion .video-showcase__rm-hint {
+  display: grid;
+}
+
+.js .video-showcase.is-reduced-motion .video-showcase__preview {
+  visibility: hidden;
+}
+
+/* Lightbox — single overlay layer (dialog background; backdrop is transparent
+   so .92 is not stacked). No visible title/caption. */
+.video-lightbox {
+  --video-safe-top: env(safe-area-inset-top, 0px);
+  --video-safe-right: env(safe-area-inset-right, 0px);
+  --video-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --video-safe-left: env(safe-area-inset-left, 0px);
+  --video-lightbox-z: 200;
+  position: fixed;
+  inset: 0;
+  z-index: var(--video-lightbox-z, 200);
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--color-overlay-lightbox);
+  color: var(--color-on-dark);
+}
+
+.video-lightbox:not([open]) {
+  display: none;
+}
+
+.video-lightbox[open] {
+  display: grid;
+  place-items: center;
+  animation: video-lightbox-in var(--dur-lightbox) var(--ease);
+}
+
+.video-lightbox::backdrop {
+  background: transparent;
+}
+
+@keyframes video-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.video-lightbox__close {
+  position: absolute;
+  top: calc(var(--space-4) + var(--video-safe-top, 0px));
+  right: calc(var(--space-4) + var(--video-safe-right, 0px));
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--touch);
+  height: var(--touch);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-overlay-button);
+  color: var(--color-on-dark);
+  cursor: pointer;
+}
+
+.video-lightbox__close svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.video-lightbox__close:hover {
+  background: var(--color-ink-2);
+}
+
+.video-lightbox__close:focus-visible,
+.video-lightbox__unmute:focus-visible,
+.video-lightbox__video:focus-visible {
+  outline: var(--line-strong) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+
+.video-lightbox__stage {
+  --video-lightbox-L: min(88dvh, calc(100dvh - 160px - var(--video-safe-top, 0px) - var(--video-safe-bottom, 0px)));
+  --video-lightbox-M: min(90vw, calc(100vw - var(--video-safe-left, 0px) - var(--video-safe-right, 0px) - var(--space-6)));
+  box-sizing: border-box;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.video-lightbox__media {
+  position: relative;
+  margin: 0 auto;
+  background: var(--color-ink-2);
+  border-radius: var(--radius-md);
+}
+
+.video-lightbox--a .video-lightbox__media {
+  width: min(var(--video-lightbox-M), calc(var(--video-lightbox-L) * 9 / 16));
+  aspect-ratio: 9 / 16;
+}
+
+.video-lightbox--b .video-lightbox__media {
+  width: min(var(--video-lightbox-M), var(--lightbox-max-w), calc(var(--video-lightbox-L) * 4 / 3));
+  aspect-ratio: 4 / 3;
+}
+
+.video-lightbox__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+  background: var(--color-ink-2);
+  border-radius: var(--radius-md);
+}
+
+.video-lightbox__unmute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: var(--touch);
+  height: var(--touch);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-overlay-button);
+  color: var(--color-on-dark);
+  cursor: pointer;
+}
+
+.video-lightbox__unmute[hidden] {
+  display: none !important;
+}
+
+.video-lightbox__unmute svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-lightbox[open] {
+    animation: none;
+  }
+}
+
+body.is-video-lightbox-open {
+  overflow: hidden;
+}
+
+@media (max-height: 500px) {
+  .video-lightbox[open] {
+    place-items: start center;
+    overflow: auto;
+  }
+}
