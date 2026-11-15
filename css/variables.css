@@ -156,3 +156,37 @@
     --card-pad: var(--space-7);
   }
 }
+
+/* Video showcase regional supplements only; brand tokens above are unchanged */
+.video-showcase {
+  --video-preview-max-h: 400px;
+  --video-header-to-media: var(--space-7);
+  --video-single-h-375: 400px;
+  --video-single-h-768: 440px;
+  --video-single-h-1200: 560px;
+  --video-single-h: var(--video-single-h-375);
+  --video-col-a: 27;
+  --video-col-b: 64;
+  --video-col-sum: 91;
+  --video-item-gap: var(--space-5);
+  --video-hover-brightness: 1.03;
+  --video-rm-hint-size: 16px;
+  --video-lightbox-z: 200;
+  --video-safe-top: env(safe-area-inset-top, 0px);
+  --video-safe-right: env(safe-area-inset-right, 0px);
+  --video-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --video-safe-left: env(safe-area-inset-left, 0px);
+}
+@media (min-width: 768px) {
+  .video-showcase {
+    --video-preview-max-h: 360px;
+    --video-item-gap: var(--grid-gap);
+    --video-single-h: var(--video-single-h-768);
+  }
+}
+@media (min-width: 1200px) {
+  .video-showcase {
+    --video-preview-max-h: 480px;
+    --video-single-h: var(--video-single-h-1200);
+  }
+}
